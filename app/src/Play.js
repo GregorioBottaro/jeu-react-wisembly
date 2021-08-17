@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Button from "@material-ui/core/Button";
 import Game from "./Game";
 import Timer from "./Timer";
 
@@ -7,17 +6,28 @@ const Play = (props) => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+
+  useEffect(() => {
+    const bestScoreStorage = localStorage.getItem("bestScore");
+    setBestScore(bestScoreStorage);
+  }, [isActive]);
 
   return (
     <div>
+      <span style={{ padding: 50 }}>Best score : {bestScore}</span>
+      <br />
+      <br />
       <span style={{ padding: 50 }}>Score: {score}</span>
-      <Game score={score} setScore={setScore} />
+      {isActive && <Game score={score} setScore={setScore} />}
       <br />
       <Timer
         seconds={seconds}
         setSeconds={setSeconds}
         isActive={isActive}
         setIsActive={setIsActive}
+        setScore={setScore}
+        score={score}
       />
     </div>
   );
