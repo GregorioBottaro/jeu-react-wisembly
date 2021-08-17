@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { API_KEY_MOVIE_DB, URL_POSTER_PATH_MOVIE } from "./constants";
 
 const myInit = {
@@ -6,49 +7,40 @@ const myInit = {
 };
 
 const getRamdomActor = async () => {
-  // random entre 0 et 20
-  const random_0_20 = parseInt(Math.random() * (200 - 1) + 1);
-  // fetch un acteur random
-  const actor = await fetch(
-    `
-    https://api.themoviedb.org/3/person/${random_0_20}?api_key=${API_KEY_MOVIE_DB}&language=en-US`,
+  // fetch les acteurs populaire
+  const actors = await fetch(
+    `https://api.themoviedb.org/3/person/popular?api_key=${API_KEY_MOVIE_DB}&language=en-US&page=1`,
     myInit
   ).then((res) => res.json());
-  console.log("actor", {
-    name: actor.name,
-    photo: URL_POSTER_PATH_MOVIE + actor.profile_path,
+  // prendre un acteur random
+  const randomActor = actors.results.map((actor) => {
+    return {
+      name: actor.name,
+      photo: URL_POSTER_PATH_MOVIE + actor.profile_path,
+    };
   });
-  // return son nom et photo
-  return {
-    name: actor.name,
-    photo: URL_POSTER_PATH_MOVIE + actor.profile_path,
-  };
+  // random entre 0 et 20
+  const random_0_20 = parseInt(Math.random() * (20 - 1) + 1);
+  return randomActor[random_0_20];
 };
 
 const getRandomMovieDetails = async () => {
-  // random entre 0 et 200 pour id movie
-  const random_0_200 = parseInt(Math.random() * (200 - 1) + 1);
-  // fetch un film
-  const movie = fetch(
+  //fetch une liste de film
+  const moviesList = await fetch(
     `
-    https://api.themoviedb.org/3/movie/${random_0_200}?api_key=${API_KEY_MOVIE_DB}&language=en-US`,
+    https://api.themoviedb.org/3/list/1?api_key=${API_KEY_MOVIE_DB}&language=en-US`,
     myInit
   ).then((res) => res.json());
+  // prendre un film random dans la liste
+  const randomMovie = _.sample(moviesList.items);
   // fetch ses acteurs
-  const movieCredit = fetch(
+  const movieCredit = await fetch(
     `
-    https://api.themoviedb.org/3/movie/${random_0_200}/credits?api_key=${API_KEY_MOVIE_DB}&language=en-US`,
+    https://api.themoviedb.org/3/movie/${randomMovie.id}/credits?api_key=${API_KEY_MOVIE_DB}&language=en-US`,
     myInit
   ).then((res) => res.json());
-  // lancer les deux fetch en parrallele pour performance
-  const results = await Promise.all([movie, movieCredit]);
-  // desfois l'api ne retourne rien, dans ce cas je relance la fonction
-  if (results[0].success === false) {
-    getRandomMovieDetails();
-    return null;
-  }
   // filtrer pour recup que les acteurs du film
-  const movieActors = results[1].cast
+  const movieActors = movieCredit.cast
     .filter((el) => el.known_for_department === "Acting")
     .map((person) => {
       return {
@@ -57,14 +49,9 @@ const getRandomMovieDetails = async () => {
       };
     });
   // retourner un objet avec le film, la couv et les acteurs
-  console.log("movie", {
-    title: results[0].title,
-    couv: URL_POSTER_PATH_MOVIE + results[0].poster_path,
-    actors: movieActors,
-  });
   return {
-    title: results[0].title,
-    couv: URL_POSTER_PATH_MOVIE + results[0].poster_path,
+    title: randomMovie.title,
+    couv: URL_POSTER_PATH_MOVIE + randomMovie.poster_path,
     actors: movieActors,
   };
 };

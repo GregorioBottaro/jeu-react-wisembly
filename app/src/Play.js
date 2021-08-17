@@ -6,19 +6,18 @@ import Timer from "./Timer";
 const Play = (props) => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  const [score, setScore] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [score, setScore] = useState(0);
 
-  console.log("isPlaying", isPlaying);
   return (
     <div>
-      {/* {isPlaying ? <Game score={score} setScore={setScore} /> : null} */}
+      <span style={{ padding: 50 }}>Score: {score}</span>
+      <Game score={score} setScore={setScore} />
+      <br />
       <Timer
         seconds={seconds}
         setSeconds={setSeconds}
         isActive={isActive}
         setIsActive={setIsActive}
-        setIsPlaying={setIsPlaying}
       />
     </div>
   );

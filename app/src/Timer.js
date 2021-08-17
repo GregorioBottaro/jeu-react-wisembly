@@ -2,17 +2,15 @@ import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 
 const Timer = (props) => {
-  const { seconds, setSeconds, isActive, setIsActive, setIsPlaying } = props;
+  const { seconds, setSeconds, isActive, setIsActive } = props;
 
   const toggle = () => {
     setIsActive(!isActive);
-    setIsPlaying(true);
   };
 
   const reset = () => {
     setSeconds(0);
     setIsActive(false);
-    setIsPlaying(false);
   };
 
   useEffect(() => {
