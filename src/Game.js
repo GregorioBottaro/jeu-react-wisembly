@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from '@mui/styles';
-import _ from "lodash";
+import sample from "lodash/sample";
+
 import Button from "@material-ui/core/Button";
 import {
   getRamdomActor,
@@ -41,7 +42,7 @@ const Game = (props) => {
     if (random0or1 === 0) {
       return getRamdomActor();
     } else {
-      const randomActor = _.sample(movie.actors);
+      const randomActor = sample(movie.actors);
       return randomActor;
     }
   };
