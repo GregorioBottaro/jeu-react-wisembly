@@ -1,13 +1,30 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import Button from "@material-ui/core/Button";
+import { createStyles, makeStyles } from '@mui/styles';
 import {
   getRamdomActor,
   getRandomMovieDetails,
 } from "./helpers/ApiMoovieDBHelper";
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    rootContainer: {
+      display: "flex", 
+      alignItems: "center"
+    },
+    padding_container: {
+      padding: 20,
+    },
+    height_img: {
+      height: 200
+    }
+  }),
+);
+
 const Game = (props) => {
   const { score, setScore } = props;
+  const classes = useStyles()
 
   const [movie, setMovie] = useState({});
   const [actor, setActor] = useState({});
@@ -40,13 +57,13 @@ const Game = (props) => {
 
   return (
     <div>
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div className={classes.rootContainer}>
         {actor && actor.photo && (
-          <div className="actor_container" style={{ padding: 20 }}>
+          <div className={classes.padding_container}>
             <img
               src={actor.photo}
               alt="actor_img"
-              style={{ height: "200px" }}
+              className={classes.height_img}
             />
             <br />
             <span>{actor.name}</span>
@@ -54,11 +71,11 @@ const Game = (props) => {
         )}
         <span>joue dans </span>
         {movie && movie.couv && (
-          <div className="movie_container" style={{ padding: 20 }}>
+          <div className={classes.padding_container} >
             <img
               src={movie.couv}
               alt="movie_couv"
-              style={{ height: "200px" }}
+              className={classes.height_img}
             />
             <br />
             <span>{movie.title}</span>
