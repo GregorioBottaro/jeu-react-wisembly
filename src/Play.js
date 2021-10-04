@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from '@mui/styles';
+import Box from '@material-ui/core/Box';
 import Game from "./Game";
 import Timer from "./Timer";
 
-const useStyles = makeStyles({
-  padding_socre: {
-    padding: 50
-  },
-});
 
 const Play = (props) => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-
-  const classes = useStyles();
 
   useEffect(() => {
     const bestScoreStorage = localStorage.getItem("bestScore");
@@ -24,10 +17,14 @@ const Play = (props) => {
 
   return (
     <div>
-      <span className={classes.padding_socre}>Best score : {bestScore}</span>
+      <Box component="span" sx={{ p: 10 }}>
+        Best score : {bestScore}
+      </Box>
       <br />
       <br />
-      <span className={classes.padding_socre}>Score: {score}</span>
+      <Box component="span" sx={{ p: 10 }}>
+      Score: {score}
+      </Box>
       {isActive && <Game score={score} setScore={setScore} />}
       <br />
       <Timer

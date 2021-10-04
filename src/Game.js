@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from '@mui/styles';
+import Box from '@material-ui/core/Box';
 import _ from "lodash";
 import Button from "@material-ui/core/Button";
 import {
@@ -8,14 +9,14 @@ import {
 } from "./helpers/ApiMoovieDBHelper";
 
 const useStyles = makeStyles({
-  main_container: {
+  mainContainer: {
     display: "flex", 
     alignItems: "center"
   },
-  img_height:{
+  imgHeight:{
     height: 200
   },
-  padding_affiche:{
+  paddingAffiche:{
     padding: 20
   },
 });
@@ -56,29 +57,29 @@ const Game = (props) => {
 
   return (
     <div>
-      <div className={classes.main_container}>
+      <div className={classes.mainContainer}>
         {actor && actor.photo && (
-          <div className={classes.padding_affiche}>
+          <Box component="div" sx={{ p: 5 }}>
             <img
               src={actor.photo}
               alt="actor_img"
-              className={classes.img_height}
-            />
+              className={classes.imgHeight}
+              />
             <br />
             <span>{actor.name}</span>
-          </div>
+          </Box>
         )}
         <span>joue dans </span>
         {movie && movie.couv && (
-          <div className={classes.padding_affiche}>
+          <Box component="div" sx={{ p: 5 }}>
             <img
               src={movie.couv}
               alt="movie_couv"
-              className={classes.img_height}
+              className={classes.imgHeight}
             />
             <br />
             <span>{movie.title}</span>
-          </div>
+          </Box>
         )}
         <span>? </span>
       </div>
