@@ -26,7 +26,7 @@ const Play = (props) => {
       <Box component="span" sx={{ p: 10 }}>
         Score: {score}
       </Box>
-      {isActive && <Game score={score} setScore={setScore} />}
+      {isActive && <Game score={score} setScore={setScore} setStopGame={setStopGame} />}
       <br />
       <Timer
         seconds={seconds}

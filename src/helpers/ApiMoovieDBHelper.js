@@ -1,5 +1,5 @@
 import sample from "lodash/sample";
-import { API_KEY_MOVIE_DB, URL_POSTER_PATH_MOVIE } from "./constants";
+import { API_KEY_MOVIE_DB, URL_POSTER_PATH_MOVIE, URL_FETCH_API_MOVIES_V3 } from "./constants";
 
 const myInit = {
   method: "GET",
