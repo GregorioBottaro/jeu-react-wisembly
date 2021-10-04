@@ -7,6 +7,7 @@ import Timer from "./Timer";
 const Play = (props) => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const [stopGame, setStopGame] = useState(false);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
@@ -23,7 +24,7 @@ const Play = (props) => {
       <br />
       <br />
       <Box component="span" sx={{ p: 10 }}>
-      Score: {score}
+        Score: {score}
       </Box>
       {isActive && <Game score={score} setScore={setScore} />}
       <br />
@@ -34,6 +35,8 @@ const Play = (props) => {
         setIsActive={setIsActive}
         setScore={setScore}
         score={score}
+        stopGame={stopGame}
+        setStopGame={setStopGame}
       />
     </div>
   );

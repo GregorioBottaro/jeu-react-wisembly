@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 });
 
 const Game = (props) => {
-  const { score, setScore } = props;
+  const { score, setScore, setStopGame } = props;
 
   const classes = useStyles();
 
@@ -52,6 +52,8 @@ const Game = (props) => {
     const isActing = movie.actors.includes(actor);
     if (isActing === responseBool) {
       setScore(score + 1);
+    } else {
+      setStopGame(true)
     }
     setActiveUseEffect(activeUseEffect + 1);
   };
