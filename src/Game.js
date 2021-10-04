@@ -7,7 +7,7 @@ import {
 } from "./helpers/ApiMoovieDBHelper";
 
 const Game = (props) => {
-  const { score, setScore } = props;
+  const { score, setScore, setStopGame } = props;
 
   const [movie, setMovie] = useState({});
   const [actor, setActor] = useState({});
@@ -34,6 +34,8 @@ const Game = (props) => {
     const isActing = movie.actors.includes(actor);
     if (isActing === responseBool) {
       setScore(score + 1);
+    } else {
+      setStopGame(true)
     }
     setActiveUseEffect(activeUseEffect + 1);
   };
