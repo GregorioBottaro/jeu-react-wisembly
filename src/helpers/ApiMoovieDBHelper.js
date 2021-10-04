@@ -1,4 +1,4 @@
-import _ from "lodash";
+import sample from "lodash/sample";
 import { API_KEY_MOVIE_DB, URL_POSTER_PATH_MOVIE } from "./constants";
 
 const myInit = {
@@ -32,7 +32,7 @@ const getRandomMovieDetails = async () => {
     myInit
   ).then((res) => res.json());
   // prendre un film random dans la liste
-  const randomMovie = _.sample(moviesList.items);
+  const randomMovie = sample(moviesList.items);
   // fetch ses acteurs
   const movieCredit = await fetch(
     `
