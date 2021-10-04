@@ -68,13 +68,13 @@ const Game = (props) => {
       </div>
       <Button
         variant="outlined"
-        onClick={() => _.debounce(checkResponse(true), 500)}
+        onClick={() => checkResponse(true)}
       >
         Vrai
       </Button>
       <Button
         variant="outlined"
-        onClick={() => _.debounce(checkResponse(false), 500)}
+        onClick={() => checkResponse(false)}
       >
         Faux
       </Button>
