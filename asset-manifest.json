@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/react-gh-pages/static/js/main.10be2980.chunk.js",
-    "main.js.map": "/react-gh-pages/static/js/main.10be2980.chunk.js.map",
-    "runtime-main.js": "/react-gh-pages/static/js/runtime-main.85a628eb.js",
-    "runtime-main.js.map": "/react-gh-pages/static/js/runtime-main.85a628eb.js.map",
-    "static/js/2.ddc104f9.chunk.js": "/react-gh-pages/static/js/2.ddc104f9.chunk.js",
-    "static/js/2.ddc104f9.chunk.js.map": "/react-gh-pages/static/js/2.ddc104f9.chunk.js.map",
-    "index.html": "/react-gh-pages/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/react-gh-pages/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.ddc104f9.chunk.js.LICENSE.txt": "/react-gh-pages/static/js/2.ddc104f9.chunk.js.LICENSE.txt"
+    "main.css": "/jeu-react-wisembly/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/jeu-react-wisembly/static/js/main.10be2980.chunk.js",
+    "main.js.map": "/jeu-react-wisembly/static/js/main.10be2980.chunk.js.map",
+    "runtime-main.js": "/jeu-react-wisembly/static/js/runtime-main.57827ef6.js",
+    "runtime-main.js.map": "/jeu-react-wisembly/static/js/runtime-main.57827ef6.js.map",
+    "static/js/2.ddc104f9.chunk.js": "/jeu-react-wisembly/static/js/2.ddc104f9.chunk.js",
+    "static/js/2.ddc104f9.chunk.js.map": "/jeu-react-wisembly/static/js/2.ddc104f9.chunk.js.map",
+    "index.html": "/jeu-react-wisembly/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/jeu-react-wisembly/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.ddc104f9.chunk.js.LICENSE.txt": "/jeu-react-wisembly/static/js/2.ddc104f9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.85a628eb.js",
+    "static/js/runtime-main.57827ef6.js",
     "static/js/2.ddc104f9.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
     "static/js/main.10be2980.chunk.js"
