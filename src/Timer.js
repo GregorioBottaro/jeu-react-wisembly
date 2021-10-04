@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 
 const Timer = (props) => {
-  const { seconds, setSeconds, isActive, setIsActive, setScore, score } = props;
+  const { seconds, setSeconds, isActive, setIsActive, setScore, score, stopGame, setStopGame } = props;
 
   const toggle = () => {
     setIsActive(!isActive);
@@ -13,6 +13,10 @@ const Timer = (props) => {
     setSeconds(0);
     setIsActive(false);
     setScore(0);
+    const scoreStorage = localStorage.getItem("bestScore");
+    if (!scoreStorage || scoreStorage < score) {
+      localStorage.setItem("bestScore", score);
+    }
   };
 
   useEffect(() => {
@@ -22,18 +26,17 @@ const Timer = (props) => {
         setSeconds((seconds) => seconds + 1);
       }, 1000);
       if (seconds === 60) {
-        setSeconds(0);
-        setIsActive(false);
-        const scoreStorage = localStorage.getItem("bestScore");
-        if (!scoreStorage || scoreStorage < score) {
-          localStorage.setItem("bestScore", score);
-        }
+        reset()
+      }
+      if (stopGame) {
+        reset()
+        setStopGame(false)
       }
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [isActive, seconds]);
+  }, [isActive, seconds, stopGame]);
 
   return (
     <div>
