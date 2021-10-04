@@ -9,7 +9,7 @@ const myInit = {
 const getRamdomActor = async () => {
   // fetch les acteurs populaire
   const actors = await fetch(
-    `https://api.themoviedb.org/3/person/popular?api_key=${API_KEY_MOVIE_DB}&language=en-US&page=1`,
+    `${URL_FETCH_API_MOVIES_V3}person/popular?api_key=${API_KEY_MOVIE_DB}&language=en-US&page=1`,
     myInit
   ).then((res) => res.json());
   // prendre un acteur random
@@ -28,7 +28,7 @@ const getRandomMovieDetails = async () => {
   //fetch une liste de film
   const moviesList = await fetch(
     `
-    https://api.themoviedb.org/3/list/1?api_key=${API_KEY_MOVIE_DB}&language=en-US`,
+    ${URL_FETCH_API_MOVIES_V3}list/1?api_key=${API_KEY_MOVIE_DB}&language=en-US`,
     myInit
   ).then((res) => res.json());
   // prendre un film random dans la liste
@@ -36,7 +36,7 @@ const getRandomMovieDetails = async () => {
   // fetch ses acteurs
   const movieCredit = await fetch(
     `
-    https://api.themoviedb.org/3/movie/${randomMovie.id}/credits?api_key=${API_KEY_MOVIE_DB}&language=en-US`,
+    ${URL_FETCH_API_MOVIES_V3}movie/${randomMovie.id}/credits?api_key=${API_KEY_MOVIE_DB}&language=en-US`,
     myInit
   ).then((res) => res.json());
   // filtrer pour recup que les acteurs du film
