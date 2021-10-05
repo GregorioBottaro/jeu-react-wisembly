@@ -1,8 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
 
 const Timer = (props) => {
-  const { seconds, setSeconds, isActive, setIsActive, setScore, score, stopGame, setStopGame } = props;
+  const {
+    seconds,
+    setSeconds,
+    isActive,
+    setIsActive,
+    setScore,
+    score,
+    stopGame,
+    setStopGame,
+  } = props;
 
   const toggle = () => {
     setIsActive(!isActive);
@@ -26,11 +36,11 @@ const Timer = (props) => {
         setSeconds((seconds) => seconds + 1);
       }, 1000);
       if (seconds === 60) {
-        reset()
+        reset();
       }
       if (stopGame) {
-        reset()
-        setStopGame(false)
+        reset();
+        setStopGame(false);
       }
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
@@ -39,7 +49,7 @@ const Timer = (props) => {
   }, [isActive, seconds, stopGame]);
 
   return (
-    <div>
+    <Box component="div" p={10}>
       <div className="time">{seconds}s</div>
       <Button variant="outlined" onClick={toggle} disabled={isActive}>
         Start
@@ -47,7 +57,7 @@ const Timer = (props) => {
       <Button variant="outlined" onClick={reset}>
         Reset
       </Button>
-    </div>
+    </Box>
   );
 };
 
