@@ -61,10 +61,10 @@ const Game = (props) => {
   };
 
   return (
-    <Box component="div" p={10}>
+    <Box component="div" p={5}>
       <div className={classes.mainContainer}>
         {actor && actor.profile_path && (
-          <Box component="div" p={5}>
+          <Box component="div" p={2}>
             <img
               src={URL_POSTER_PATH_MOVIE + actor.profile_path}
               alt="actor_img"
@@ -76,7 +76,7 @@ const Game = (props) => {
         )}
         <span>joue dans </span>
         {movie && movie.poster_path && (
-          <Box component="div" p={5}>
+          <Box component="div" p={2}>
             <img
               src={URL_POSTER_PATH_MOVIE + movie.poster_path}
               alt="poster_path"

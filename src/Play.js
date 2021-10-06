@@ -9,7 +9,6 @@ import HowPlay from "./HowPlay";
 import { initializeGame } from "./helpers/ApiMoovieDBHelper";
 
 const Play = (props) => {
-  const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [stopGame, setStopGame] = useState(false);
   const [score, setScore] = useState(0);
@@ -66,8 +65,6 @@ const Play = (props) => {
           <br />
           {!isActive && <HowPlay />}
           <Timer
-            seconds={seconds}
-            setSeconds={setSeconds}
             isActive={isActive}
             setIsActive={setIsActive}
             setScore={setScore}
