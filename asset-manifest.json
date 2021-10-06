@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/jeu-react-wisembly/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/jeu-react-wisembly/static/js/main.a4ede828.chunk.js",
-    "main.js.map": "/jeu-react-wisembly/static/js/main.a4ede828.chunk.js.map",
+    "main.js": "/jeu-react-wisembly/static/js/main.4b2cbc1a.chunk.js",
+    "main.js.map": "/jeu-react-wisembly/static/js/main.4b2cbc1a.chunk.js.map",
     "runtime-main.js": "/jeu-react-wisembly/static/js/runtime-main.57827ef6.js",
     "runtime-main.js.map": "/jeu-react-wisembly/static/js/runtime-main.57827ef6.js.map",
-    "static/js/2.e73dfb99.chunk.js": "/jeu-react-wisembly/static/js/2.e73dfb99.chunk.js",
-    "static/js/2.e73dfb99.chunk.js.map": "/jeu-react-wisembly/static/js/2.e73dfb99.chunk.js.map",
+    "static/js/2.7f8742cc.chunk.js": "/jeu-react-wisembly/static/js/2.7f8742cc.chunk.js",
+    "static/js/2.7f8742cc.chunk.js.map": "/jeu-react-wisembly/static/js/2.7f8742cc.chunk.js.map",
     "index.html": "/jeu-react-wisembly/index.html",
     "static/css/main.6dea0f05.chunk.css.map": "/jeu-react-wisembly/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.e73dfb99.chunk.js.LICENSE.txt": "/jeu-react-wisembly/static/js/2.e73dfb99.chunk.js.LICENSE.txt"
+    "static/js/2.7f8742cc.chunk.js.LICENSE.txt": "/jeu-react-wisembly/static/js/2.7f8742cc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.57827ef6.js",
-    "static/js/2.e73dfb99.chunk.js",
+    "static/js/2.7f8742cc.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.a4ede828.chunk.js"
+    "static/js/main.4b2cbc1a.chunk.js"
   ]
 }
