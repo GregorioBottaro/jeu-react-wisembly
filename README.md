@@ -16,5 +16,3 @@ npm run start
 ## Lien gh-pages
 
 https://gregoriohetic.github.io/jeu-react-wisembly/
-
-petit bug avec des paddings aléatoires
